@@ -1,4 +1,4 @@
-name: 'Build docker image'
+name: 'Build docker image1'
 on: 
   # Auto build on push to main branch
   push:
