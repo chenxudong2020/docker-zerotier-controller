@@ -7,10 +7,9 @@ ENV YARN_VERSION=2.4.0
 # ENV ZEROTIER_ONE_VERSION=`curl --silent "https://api.github.com/repos/zerotier/ZeroTierOne/releases" | jq -r ".[0].tag_name"`
 ENV ZEROTIER_ONE_VERSION=1.6.6
     
-
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 RUN apk update && \
-    apk add python3 alpine-sdk gcc wget git linux-headers libpq postgresql-dev bash jq
-
+    apk add python3 alpine-sdk gcc wget git linux-headers libpq postgresql-dev bash jq postgresql-common libpq-dev
 WORKDIR /src
 
 # Prepaire Environment
